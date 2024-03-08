@@ -1,0 +1,15 @@
+{
+    "name": "emerson.leite/php-dev-class",
+    "autoload": {
+        "psr-4": {
+            "app": "app/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Emerson",
+            "email": "emerson.bl@gmail.com"
+        }
+    ],
+    "require": {}
+}
