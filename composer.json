@@ -1,15 +1,17 @@
 {
-    "name": "emerson.leite/php-dev-class",
-    "autoload": {
-        "psr-4": {
-            "app": "app/"
-        }
-    },
-    "authors": [
-        {
-            "name": "Emerson",
-            "email": "emerson.bl@gmail.com"
-        }
-    ],
-    "require": {}
+  "name": "emerson.leite/php-dev-class",
+  "autoload": {
+    "files": [
+      "app/functions/custom.php",
+      "app/functions/pages.php",
+      "app/functions/validate.php"
+    ]
+  },
+  "authors": [
+    {
+      "name": "Emerson",
+      "email": "emerson.bl@gmail.com"
+    }
+  ],
+  "require": {}
 }
