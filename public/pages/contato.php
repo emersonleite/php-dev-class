@@ -1,6 +1,6 @@
 <h2>Contatos</h2>
 
-<form action="/pages/forms/contato.php" method="GET" role="form">
+<form action="/pages/forms/contato.php" method="POST" role="form">
     <div class="form-group mb-4">
         <label for="name">Nome</label>
         <input type="text" class="form-control" name="name" placeholder="Digite seu nome">

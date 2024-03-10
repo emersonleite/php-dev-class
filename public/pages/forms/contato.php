@@ -6,7 +6,12 @@ $request = getRequest();
 
 $validate = validate($request);
 
-dd($validate->name);
+
+var_dump($validate);
+
+
+// dd($validate->email);
+
 
 
 
