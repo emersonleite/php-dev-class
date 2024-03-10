@@ -2,6 +2,19 @@
 
 require "../../../bootstrap.php";
 
-dd($_POST);
+$request = getRequest();
 
-$validate = validate();
+$validate = validate($request);
+
+dd($validate->name);
+
+
+
+
+
+
+
+
+
+
+
