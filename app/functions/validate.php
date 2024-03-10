@@ -13,6 +13,10 @@ function validate(array $fields): object
         return str_replace(["'", '"'], ['&#39;', '&#34;'], $str);
     };
 
+
+    $validate = [];
+
+
     // Opção para FILTER_SANITIZE_STRING que está depreciado
     $sanitize = ["email" => $validateEmail,
         "name" => $validateText,
@@ -20,7 +24,6 @@ function validate(array $fields): object
         "message" => $validateText
     ];
 
-    $validate = [];
 
     foreach ($fields as $key => $value) {
         $validate[$key] = $sanitize[$key]($value);
