@@ -1,5 +1,11 @@
 <h2>Contatos</h2>
 
+<?php
+// echo get('message');
+
+echo $_SESSION['flash']['message'] ?? "";
+?>
+
 <form action="/pages/forms/contato.php" method="POST" role="form">
     <div class="form-group mb-4">
         <label for="name">Nome</label>
