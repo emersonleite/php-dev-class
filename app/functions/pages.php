@@ -9,7 +9,8 @@ function load(): string
 
     $page = (!$page) ? 'pages/home.php' : "pages/{$page}.php";
 
-    if(!file_exists($page)) {
+    // Verifica se o diretório ou arquivo existe
+    if (!file_exists($page)) {
         throw new Exception('Page not found');
     }
 
