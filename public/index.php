@@ -18,6 +18,9 @@ require "../bootstrap.php";
 <div class="container">
     <?php
 
+    // Começando a sessão
+    session_start();
+
     try {
         require load();
     } catch (Exception $e) {
