@@ -8,7 +8,7 @@ $request = getRequest();
 // Verificando campos vazios
 if (isEmpty($request)) {
     flash('message', 'Preencha todos os campos!');
-    // echo 'preencha todos os campos!';
+
     // redirecionamento
     header("location:/?page=contato");
 }
@@ -17,7 +17,7 @@ if (isEmpty($request)) {
 $validate = validateFields($request);
 
 // var_dump(isEmpty($request));
-dd($validate);
+// dd($validate);
 
 
 

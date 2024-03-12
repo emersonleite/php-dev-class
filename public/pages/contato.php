@@ -1,9 +1,7 @@
 <h2>Contatos</h2>
 
 <?php
-// echo get('message');
-
-echo $_SESSION['flash']['message'] ?? "";
+get('message');
 ?>
 
 <form action="/pages/forms/contato.php" method="POST" role="form">
