@@ -1,8 +1,6 @@
 <h2>Contatos</h2>
 
-<?php
-get('message');
-?>
+<?= get('message') ?>
 
 <form action="/pages/forms/contato.php" method="POST" role="form">
     <div class="form-group mb-4">
