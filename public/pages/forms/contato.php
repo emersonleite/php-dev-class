@@ -10,11 +10,15 @@ if (isEmpty($request)) {
     flash('message', 'Preencha todos os campos!');
 
     // redirecionamento
-    header("location:/?page=contato");
+    redirect('contato');
 }
 
 // Validando campos
 $validate = validateFields($request);
+
+send();
+
+// sendEmail($validate);
 
 // var_dump(isEmpty($request));
 // dd($validate);
