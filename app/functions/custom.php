@@ -17,5 +17,14 @@ function getRequest(): array
     return $listOfRequest[$requestMethod];
 }
 
+function redirect($target)
+{
+    header("location:/?page={$target}");
+}
+
+function redirectToHome()
+{
+    header("location:/");
+}
 
 
