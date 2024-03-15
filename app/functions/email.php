@@ -3,6 +3,7 @@
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 
+/*
 function sendEmail($data)
 {
     $to = "emerson.leite@gmail.com";
@@ -13,17 +14,15 @@ function sendEmail($data)
         'X-Mailer: PHP/' . phpversion();
 
     mail($to, $subject, $message, $headers);
+}*/
 
-
-}
-
-function send()
+function sendEmail(object $fields)
 {
     // Instanciar o objeto do PHPMailer
     $mail = new PHPMailer(true);
 
     try {
-        // Configurações do servidor SMTP
+        // Configurações do servidor SMTP - mailtrap - https://mailtrap.io/
         $mail->isSMTP();
         $mail->Host = 'sandbox.smtp.mailtrap.io';
         $mail->SMTPAuth = true;
@@ -33,14 +32,14 @@ function send()
         $mail->Port = 587; // Porta de saída do servidor SMTP
 
         // Configurações do e-mail
-        $mail->setFrom('emerson.bl@gmail.com', 'Emerson Leite');
-        $mail->addAddress('emerson.bl@gmail.com', 'Emerson Leite');
-        $mail->addReplyTo('emerson.bl@gmail.com', 'Emerson Leite');
+        $mail->setFrom($fields->email, $fields->name);
+        $mail->addAddress($fields->email, $fields->name);
+        $mail->addReplyTo($fields->email, $fields->name);
 
         // Conteúdo do e-mail
         $mail->isHTML(true);
-        $mail->Subject = 'Assunto do e-mail';
-        $mail->Body = 'Este é o corpo do e-mail';
+        $mail->Subject = $fields->subject;
+        $mail->Body = $fields->message;
 
         // Enviar e-mail
         $mail->send();

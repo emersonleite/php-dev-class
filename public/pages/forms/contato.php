@@ -16,9 +16,7 @@ if (isEmpty($request)) {
 // Validando campos
 $validate = validateFields($request);
 
-send();
-
-// sendEmail($validate);
+sendEmail($validate);
 
 // var_dump(isEmpty($request));
 // dd($validate);
