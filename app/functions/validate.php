@@ -1,6 +1,5 @@
 <?php
 
-
 function validateFields(array $fields): object
 {
 
