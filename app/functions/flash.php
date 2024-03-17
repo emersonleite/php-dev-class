@@ -1,6 +1,6 @@
 <?php
 
-function createFlashMessage($key, $message, $type = "danger"): void
+function createFlashMessage($key, $message): void
 {
     if (!isset($_SESSION['flash'][$key])) {
         $_SESSION['flash'][$key] = $message;
