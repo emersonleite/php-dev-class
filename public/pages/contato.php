@@ -1,6 +1,16 @@
 <h2>Contatos</h2>
 
-<?= get('message') ?>
+<?php
+$key = "message";
+$message = get('message');
+
+if ($message !== "") {
+    show($message);
+}
+
+clearFlash($key);
+
+?>
 
 <form action="/pages/forms/contato.php" method="POST" role="form">
     <div class="form-group mb-4">

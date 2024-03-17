@@ -2,11 +2,15 @@
 
 require "../../../bootstrap.php";
 
+session_start();
+
 // Obtendo tipo da request
 $request = getRequest();
 
 // Verificando campos vazios
 if (isEmpty($request)) {
+
+    // Guardando a mensagem na sessão
     flash('message', 'Preencha todos os campos!');
 
     // redirecionamento
