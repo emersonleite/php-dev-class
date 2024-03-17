@@ -11,7 +11,7 @@ $request = getRequest();
 if (isEmpty($request)) {
 
     // Guardando a mensagem na sessão
-    flash('message', 'Preencha todos os campos!');
+    createFlashMessage('message', 'Preencha todos os campos!');
 
     // redirecionamento
     redirect('contato');

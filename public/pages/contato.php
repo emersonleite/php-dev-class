@@ -2,13 +2,13 @@
 
 <?php
 $key = "message";
-$message = get('message');
+$message = getFlashMessage('message');
 
 if ($message !== "") {
-    show($message);
+    showFlashMessage($message);
 }
 
-clearFlash($key);
+clearFlashMessage($key);
 
 ?>
 
