@@ -5,8 +5,10 @@
       "app/functions/custom.php",
       "app/functions/pages.php",
       "app/functions/validate.php",
+      "app/functions/validations.php",
       "app/functions/flash.php",
-      "app/functions/email.php"
+      "app/functions/email.php",
+      "app/functions/database.php"
     ]
   },
   "authors": [
@@ -16,6 +18,7 @@
     }
   ],
   "require": {
-    "phpmailer/phpmailer": "^6.9"
+    "phpmailer/phpmailer": "^6.9",
+    "ext-pdo": "*"
   }
 }
