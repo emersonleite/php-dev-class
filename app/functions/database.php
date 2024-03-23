@@ -2,7 +2,7 @@
 
 class Config
 {
-    const PATH_TO_SQLITE_FILE = 'user.db';
+    const PATH_TO_SQLITE_FILE = '../../../db/user.db';
 }
 
 function connectToDB(): PDO
@@ -10,12 +10,22 @@ function connectToDB(): PDO
     return new PDO("sqlite:" . Config::PATH_TO_SQLITE_FILE, "", "", [PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_OBJ]);
 }
 
+function createTable(string $table){
+    $pdo = connectToDB();
 
-function createUser(string $table, stdClass $fields)
+    return $pdo->exec("CREATE TABLE IF NOT EXISTS $table (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name VARCHAR(255) NOT NULL,
+    lastname VARCHAR(255) NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL
+  );");
+ 
+}
+
+
+function createUser(string $table, $fields)
 {
-    // $pdo = connectToDB();
-
-
     // Transformando em array
     if (!is_array($fields)) {
         $fields = (array)$fields;
@@ -23,40 +33,50 @@ function createUser(string $table, stdClass $fields)
 
     $pdo = connectToDB();
 
-    $pdo->exec("CREATE TABLE IF NOT EXISTS $table (
-    id INT PRIMARY KEY,
-    name VARCHAR(255) NOT NULL,
-    lastname VARCHAR(255) NOT NULL,
-    password VARCHAR(255) NOT NULL,
-    email VARCHAR(255) NOT NULL
-  );");
+    $sql = "insert into $table (";
+     $sql .= implode(", ", array_keys($fields)) . ")";
+     $sql .= " values (";
+     $sql .= ":" . implode(",:", array_keys($fields)) . ")";
 
-    $pdo->exec("insert into customers(id, name, lastname, email, password) values (1,'Emerson', 'Leite','emerson.leite@gmail.com', '123456')");
+     $insert = $pdo->prepare($sql);
 
-    /*$sql = "insert into $table (";
-    $sql .= implode(", ", array_keys($fields)) . ")";
-    $sql .= " values (";
-    $sql .= ":" . implode(",:", array_keys($fields)) . ")";*/
+     $insert->execute($fields);
 
     // dd($sql);
     // dd($pdo->prepare($sql));
-
-
-    // $insert = $pdo->prepare($sql);
-
-    // $insert->execute($fields);
-
-    // return $insert->execute($fields);
 }
 
 function updateUser($username, $password)
 {
+    
 }
 
 function findUser($username)
 {
+
 }
 
 function deleteUser($username)
 {
+
+}
+
+function deleteAllUsers()
+{
+    $pdo = connectToDB();
+
+    $sql = "DELETE FROM customers;";
+
+    return $pdo->exec($sql);
+
+}
+
+function deleteTable()
+{
+    $pdo = connectToDB();
+
+    $sql = "DROP TABLE customers;";
+
+    return $pdo->exec($sql);
+
 }
