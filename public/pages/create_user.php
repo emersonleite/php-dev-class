@@ -34,4 +34,21 @@ clearFlashMessage($key);
     </div>
 
     <button type="submit" class="btn btn-primary">Submit</button>
+
 </form>
+
+
+<div style="display: flex; justify-content: space-evenly;">
+<form action="/pages/forms/delete_all.php" method="POST" role="form">
+    <button type="submit" class="btn btn-primary">Apagar todos os usuários</button>
+</form>
+
+<form action="/pages/forms/delete_table.php" method="POST" role="form">
+    <button type="submit" class="btn btn-primary">Apagar tabela</button>
+</form>
+
+<form action="/pages/forms/create_table.php" method="POST" role="form">
+    <button type="submit" class="btn btn-primary">Criar tabela</button>
+</form>
+</div>
+

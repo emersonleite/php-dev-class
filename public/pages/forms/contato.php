@@ -34,9 +34,9 @@ $validate = validateFields($request, $sanitizeEmail);
 
 
 // var_dump(isEmpty($request));
-dd($validate);
+// dd($validate);
 
-// sendEmail($validate);
+sendEmail($validate);
 
 
 
